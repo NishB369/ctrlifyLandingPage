@@ -278,17 +278,11 @@
   .h-1 {
     height: calc(var(--spacing) * 1);
   }
-  .h-1\/2 {
-    height: calc(1/2 * 100%);
-  }
   .h-\[12\.5\%\] {
     height: 12.5%;
   }
   .h-\[50vh\] {
     height: 50vh;
-  }
-  .h-\[75\%\] {
-    height: 75%;
   }
   .h-\[100vh\] {
     height: 100vh;
@@ -299,17 +293,8 @@
   .h-\[300px\] {
     height: 300px;
   }
-  .h-\[400px\] {
-    height: 400px;
-  }
-  .h-\[510px\] {
-    height: 510px;
-  }
   .h-\[550px\] {
     height: 550px;
-  }
-  .h-\[600px\] {
-    height: 600px;
   }
   .h-\[1500vh\] {
     height: 1500vh;
@@ -328,9 +313,6 @@
   }
   .w-1\/3 {
     width: calc(1/3 * 100%);
-  }
-  .w-1\/4 {
-    width: calc(1/4 * 100%);
   }
   .w-3 {
     width: calc(var(--spacing) * 3);
@@ -365,14 +347,8 @@
   .w-\[65\%\] {
     width: 65%;
   }
-  .w-\[80\%\] {
-    width: 80%;
-  }
   .w-\[90\%\] {
     width: 90%;
-  }
-  .w-\[95\%\] {
-    width: 95%;
   }
   .w-\[100vw\] {
     width: 100vw;
@@ -489,44 +465,20 @@
       border-color: color-mix(in oklab, var(--color-white) 20%, transparent);
     }
   }
-  .bg-\[\#12\] {
-    background-color: #12;
-  }
   .bg-\[\#0171ff\] {
     background-color: #0171ff;
   }
   .bg-\[\#121826\] {
     background-color: #121826;
   }
-  .bg-\[\#121826\]\/10 {
-    background-color: color-mix(in oklab, #121826 10%, transparent);
-  }
-  .bg-\[\#121826\]\/25 {
-    background-color: color-mix(in oklab, #121826 25%, transparent);
-  }
-  .bg-\[\#121826\]\/50 {
-    background-color: color-mix(in oklab, #121826 50%, transparent);
-  }
   .bg-\[\#121826\]\/75 {
     background-color: color-mix(in oklab, #121826 75%, transparent);
-  }
-  .bg-\[\#121826\]\/95 {
-    background-color: color-mix(in oklab, #121826 95%, transparent);
-  }
-  .bg-\[\#\]\/10 {
-    background-color: color-mix(in oklab, # 10%, transparent);
   }
   .bg-black {
     background-color: var(--color-black);
   }
   .bg-white {
     background-color: var(--color-white);
-  }
-  .bg-white\/10 {
-    background-color: color-mix(in srgb, #fff 10%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--color-white) 10%, transparent);
-    }
   }
   .p-10 {
     padding: calc(var(--spacing) * 10);
