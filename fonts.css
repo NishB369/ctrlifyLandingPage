@@ -1,0 +1,19 @@
+@font-face {
+  font-family: agrandir-reg;
+  src: url(./Agrandir-Regular.otf);
+}
+
+@font-face {
+  font-family: agrandir-glight;
+  src: url(./Agrandir-GrandLight.otf);
+}
+
+@font-face {
+  font-family: agrandir-textbold;
+  src: url(./Agrandir-TextBold.otf);
+}
+
+body,
+html {
+  font-family: "agrandir-reg";
+}
