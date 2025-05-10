@@ -191,6 +191,12 @@
       </div>
     </div>
 
+    <div class="relative w-full h-[1500vh]">
+      <div class="w-full sticky top-0 left-0 overflow-hidden">
+        <canvas class="w-full h-screen" id="canvas"></canvas>
+      </div>
+    </div>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
       integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
@@ -206,5 +212,111 @@
     ></script>
 
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+    <script>
+      const canvas = document.querySelector("#canvas");
+      const context = canvas.getContext("2d");
+      const frames = {
+        currentIndex: 1,
+        maxIndex: 372,
+      };
+
+      const images = [];
+      let imagesLoaded = 0;
+      let audioStarted = false;
+
+      function preloadImages() {
+        for (var i = 1; i <= frames.maxIndex; i++) {
+          const imageUrl = `/Frames/frame_${i
+            .toString()
+            .padStart(4, "0")}.jpeg`;
+          const img = new Image();
+          img.src = imageUrl;
+
+          img.onload = function () {
+            imagesLoaded++;
+            if (imagesLoaded === frames.maxIndex) {
+              loadImage(frames.currentIndex);
+              startAnimation();
+            }
+          };
+
+          images.push(img);
+          console.log(imagesLoaded);
+        }
+      }
+
+      function loadImage(index) {
+        if (index >= 0 && index <= frames.maxIndex) {
+          const img = images[index];
+
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+
+          const scaleX = canvas.width / img.width;
+          const scaleY = canvas.height / img.height;
+          const scale = Math.max(scaleX, scaleY);
+
+          const newWidth = img.width * scale;
+          const newHeight = img.height * scale;
+
+          const offsetX = (canvas.width - newWidth) / 2;
+          const offsetY = (canvas.height - newHeight) / 2;
+
+          context.clearRect(0, 0, canvas.width, canvas.height);
+          context.imageSmoothingEnabled = true;
+          context.imageSmoothingQuality = "high";
+          context.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+
+          frames.currentIndex = index;
+        }
+      }
+
+      let audio = document.querySelector("audio");
+
+      function startAnimation() {
+        var tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".parent",
+            start: "top top",
+            scrub: 2,
+            end: "bottom bottom",
+          },
+        });
+
+        function updateFrame(index) {
+          return {
+            currentIndex: index,
+            ease: "linear",
+            onUpdate: function () {
+              loadImage(Math.floor(frames.currentIndex));
+            },
+          };
+        }
+
+        tl.to(frames, updateFrame(70), "a")
+
+          .to(frames, updateFrame(140), "b")
+          .to("canvas", { scale: 0.5, ease: "linear " }, "b")
+
+          .to(frames, updateFrame(372), "c")
+          .to("canvas", { scale: 1, ease: "linear " }, "c");
+      }
+
+      window.addEventListener("resize", function () {
+        loadImage(Math.floor(frames.currentIndex));
+      });
+
+      const lenis = new Lenis();
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+
+      preloadImages();
+    </script>
   </body>
 </html>
