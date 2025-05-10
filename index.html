@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
     <link href="./src/output.css" rel="stylesheet" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./fonts.css">
+    <link rel="icon" href="./public/media/images/Favicon.png">
+    <title>Ctrilfy, Financial Chaos to Ctrl</title>
     <style>
       html.lenis,
       html.lenis body {
@@ -45,11 +46,12 @@
       <div
   class="w-[90%] py-2 rounded-full px-4 flex items-center justify-between text-white fixed top-4 z-20 backdrop-blur-sm bg-[#121826]/75 border border-white/20"
 >
-  <img src="./public/media/images/Logo.png" class="w-20 cursor-pointer" />
+<a href="#hero-section" class="cursor-pointer">
+  <img src="./public/media/images/Logo.png" class="w-20" /></a>
   <div class="flex items-center justify-between gap-20">
-    <div class="cursor-pointer">Why</div>
-    <div class="cursor-pointer">Features</div>
-    <div class="cursor-pointer">Demo</div>
+    <a href="#why-section" class="cursor-pointer">Why</a>
+    <a href="#features-section" class="cursor-pointer">Features</a>
+    <a href="#demovid-section" class="cursor-pointer">Demo</a>
   </div>
   <button
     class="text-[#121826] font-semibold px-4 py-2 rounded-full cursor-pointer"
@@ -70,6 +72,7 @@
 
 
       <div
+      id="hero-section"
         class="h-[550px] mt-4 pt-20 flex flex-col items-center justify-center text-[#121826] relative"
       >
         <div
@@ -140,7 +143,8 @@
           <img src="./public/media/images/MainPhone.png" class="w-96" />
         </div>
       </div>
-      <div class="py-20 px-30 flex items-center justify-center gap-16">
+      
+      <div class="py-20 px-30 flex items-center justify-center gap-16" id="why-section">
         <div class="w-1/2 flex flex-col gap-4">
           <div class="text-6xl font-semibold">Why Ctrilfy?</div>
           <div class="text-xl">
@@ -195,20 +199,20 @@
       </div>
     </div>
 
-    <div class="relative w-full h-[1500vh]">
+    <div class="relative w-full h-[1500vh]" id="features-section">
       <div class="w-full sticky top-0 left-0 overflow-hidden">
         <canvas class="w-full h-screen" id="canvas"></canvas>
       </div>
     </div>
 
-    <div class="px-20 pt-20 relative overflow-hidden">
+    <div class="px-20 pt-20 relative overflow-hidden" id="demovid-section">
       <div class="w-full flex flex-col items-center justify-center">
         <div
           class="text-5xl font-semibold text-[#121826] text-center leading-12 w-3/4"
           style="font-family: agrandir-textbold"
         >
           Watch <span class="text-[#0171ff] italic">Ctrilfy</span> Transform
-          Your Finances Are Saying
+          Your Finances
         </div> 
         
         <div id="parent" class="bg-[#0171ff] p-20 w-full h-[50vh] mt-40 rounded-t-[100px] border-2 relative flex justify-center">
@@ -241,7 +245,7 @@
     <div class="text-3xl text-white font-semibold text-shadow-2xs text-right">Control Your Finances,<br>Anytime, Anywhere.</div>
   </div>
   <div class="w-[40%] flex items-center justify-start">
-    <img src="./public/media/images/qrCode.png" alt="" class="w-3/4">
+    <img src="./public/media/images/qr.png" alt="" class="w-3/4">
   </div>
 </div>
 </div>
