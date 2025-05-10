@@ -38,7 +38,16 @@
   </head>
 
   <body>
-    <div class="bg-amber-50 px-20 py-4">
+    <div class="px-20 py-4">
+      <div
+        style="
+          background-image: url(./public/media/images/GridLines.png);
+          background-position: center;
+          background-size: cover;
+        "
+        class="h-[100vh] w-[100vw] absolute top-0 left-0 overflow-x-hidden"
+      ></div>
+
       <div
         class="bg-[#121826] w-full py-2 rounded-full px-4 flex items-center justify-between text-white sticky top-4 z-20"
       >
@@ -197,6 +206,23 @@
       </div>
     </div>
 
+    <div class="px-20 pt-20 relative overflow-hidden">
+      <div class="w-full flex flex-col items-center justify-center">
+        <div
+          class="text-5xl font-semibold text-[#121826] text-center leading-12 w-3/4"
+          style="font-family: agrandir-textbold"
+        >
+          Watch <span class="text-[#0171ff] italic">Ctrilfy</span> Transform
+          Your Finances Are Saying
+        </div> 
+        
+        <div id="parent" class="bg-[#0171ff] p-20 w-full h-[50vh] mt-40 rounded-t-[100px] border-2 relative flex justify-center">
+          <video id="demoVid" src="./public/media/videos/Demo.mp4" class="rounded-[40px] border-2 border-black absolute scale-85 -top-30" autoplay muted loop></video>
+        </div>
+      </div>
+      </div>
+    </div>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
       integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
@@ -272,8 +298,6 @@
         }
       }
 
-      let audio = document.querySelector("audio");
-
       function startAnimation() {
         var tl = gsap.timeline({
           scrollTrigger: {
@@ -317,6 +341,27 @@
       requestAnimationFrame(raf);
 
       preloadImages();
+
+      const demoVid = document.querySelector("#demoVid");
+
+      gsap.set(demoVid, {
+        scale: 4, 
+        transformOrigin: "center top"
+      });
+
+      gsap.to(demoVid, {
+        scrollTrigger: {
+          trigger: "#parent",
+          start: "top bottom", 
+          end: "top center", 
+          scrub: 1.5, 
+          toggleActions: "play none none reverse"
+        },
+        scale: 0.75,
+        ease: "power2.out",
+        duration: 3
+      });
+      
     </script>
   </body>
 </html>
