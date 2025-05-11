@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./fonts.css" />
     <link rel="icon" href="./public/media/images/Favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
     <title>Ctrilfy, Financial Chaos to Ctrl</title>
     <style>
       html.lenis,
@@ -34,7 +38,7 @@
 
   <body>
     <!-- Hero and Why Sections -->
-    <div class="px-20 py-4">
+    <div class="px-4 md:px-20 py-4 flex flex-col items-center justify-center">
       <!-- Grid Lines -->
       <div
         style="
@@ -42,12 +46,12 @@
           background-position: center;
           background-size: cover;
         "
-        class="h-[550px] w-[100vw] absolute top-0 left-0 overflow-x-hidden"
+        class="h-[90vh] md:h-[550px] w-[100vw] absolute top-0 left-0 overflow-x-hidden"
       ></div>
 
       <!-- Navbar -->
       <div
-        class="w-[90%] py-2 rounded-full px-4 flex items-center justify-between text-white fixed top-4 z-20 backdrop-blur-sm bg-[#121826]/75 border border-white/20"
+        class="w-[90%] py-2 px-4 flex items-center justify-between text-white fixed top-6 md:top-4 z-20 backdrop-blur-sm bg-[#121826]/75 border border-white/20 rounded-full"
       >
         <!-- Logo -->
         <a href="#hero-section" class="cursor-pointer">
@@ -55,7 +59,7 @@
         /></a>
 
         <!-- Nav Links -->
-        <div class="flex items-center justify-between gap-20">
+        <div class="items-center justify-between gap-20 hidden md:flex">
           <a href="#why-section" class="cursor-pointer">Why</a>
           <a href="#features-section" class="cursor-pointer">Features</a>
           <a href="#demovid-section" class="cursor-pointer">Demo</a>
@@ -63,7 +67,7 @@
 
         <!-- Get Started Button -->
         <button
-          class="text-[#121826] font-semibold px-4 py-2 rounded-full cursor-pointer"
+          class="text-[#121826] font-semibold px-4 py-2 rounded-full cursor-pointer hidden md:block"
           style="
             background: radial-gradient(
               circle at 0% 0%,
@@ -77,12 +81,16 @@
         >
           Get Started
         </button>
+
+        <button class="flex items-center justify-center text-2xl md:hidden">
+          <div class="bi bi-list mt-1"></div>
+        </button>
       </div>
 
       <!-- Hero Section -->
       <div
         id="hero-section"
-        class="h-[550px] mt-4 pt-20 flex flex-col items-center justify-center text-[#121826] relative"
+        class="h-[90vh] md:h-[550px] mt-4 pt-20 flex flex-col items-center justify-center text-[#121826] relative"
       >
         <!-- Gradient End -->
         <div
@@ -99,18 +107,21 @@
         <!-- Text Container -->
         <div class="text-center">
           <div
-            class="text-7xl font-black tracking-wider"
+            class="text-5xl md:text-7xl font-black tracking-wider"
             style="font-family: agrandir-glight"
           >
             Financial
           </div>
 
           <div
-            class="flex items-center justify-center font-semibold text-6xl -mt-2 gap-2 tracking-wide"
+            class="flex items-center justify-center font-semibold text-4xl -mt-2 gap-2 tracking-wide"
           >
             <div>Chaos</div>
             <div class="bg-[#0171ff] px-10 py-2 rounded-full">
-              <img src="./public/media/images/RightArrow.png" class="w-20" />
+              <img
+                src="./public/media/images/RightArrow.png"
+                class="w-8 md:w-20"
+              />
             </div>
             <div>Ctrl</div>
           </div>
@@ -146,18 +157,18 @@
         </div>
 
         <!-- Images Container -->
-        <div class="overflow-hidden px-60 mt-6 relative">
+        <div class="overflow-hidden sm:px-20 md:px-40 lg:px-60 mt-6 relative">
           <img
             src="./public/media/images/BalanceImg.png"
-            class="w-60 absolute left-20 top-12"
+            class="w-60 absolute left-20 top-12 hidden md:block"
           />
           <img
             src="./public/media/images/ChartImg.png"
-            class="w-50 absolute top-20 right-24"
+            class="w-50 absolute top-20 right-24 hidden md:block"
           />
           <img
             src="./public/media/images/RsCoin.png"
-            class="w-30 absolute right-44"
+            class="w-30 absolute right-44 hidden md:block"
           />
           <img src="./public/media/images/MainPhone.png" class="w-96" />
         </div>
@@ -165,47 +176,49 @@
 
       <!-- Why Section -->
       <div
-        class="py-20 px-30 flex items-center justify-center gap-16"
+        class="pt-20 md:py-20 flex flex-col lg:flex-row items-center justify-center lg:gap-16 px-0 lg:px-20"
         id="why-section"
       >
         <!-- Left Section -->
-        <div class="w-1/2 flex flex-col gap-4">
-          <div class="text-6xl font-semibold">Why Ctrilfy?</div>
+        <div class="w-full lg:w-1/2 flex flex-col gap-4">
+          <div class="text-5xl font-semibold text-center lg:text-left">
+            Why Ctrilfy?
+          </div>
 
-          <div class="text-xl">
+          <div class="text-xl text-center lg:text-left">
             Drowning in scattered income, missed expenses, and forgotten savings
             goals?
           </div>
 
           <!-- Pointers Section -->
           <div class="flex flex-col gap-2">
-            <div class="w-full flex justify-end">
+            <div class="w-full flex justify-center lg:justify-end">
               <div
-                class="bg-[#121826] border-[#121826] border-2 flex items-center justify-center text-white py-2 rounded-md w-[65%] font-semibold text-xl leading-6"
+                class="bg-[#121826] border-[#121826] border-2 flex items-center justify-center text-white py-2 rounded-lg w-[85%] lg:w-[65%] text-center lg:text-left font-semibold text-lg leading-6"
               >
                 <div class="w-3/4">No single place to manage everything</div>
               </div>
             </div>
 
-            <div class="w-full flex">
+            <div class="w-full flex justify-center lg:justify-start">
               <div
-                class="bg-[#0171ff] border-[#121826] border-2 flex items-center justify-center text-white py-2 rounded-md w-[65%] font-semibold text-xl leading-6"
+                class="bg-[#0171ff] border-[#121826] border-2 flex items-center justify-center text-white py-2 rounded-lg w-[85%] lg:w-[65%] text-center lg:text-left font-semibold text-lg leading-6"
               >
                 <div class="w-3/4">Unclear where your money goes</div>
               </div>
             </div>
 
-            <div class="w-full flex justify-end">
+            <div class="w-full flex justify-center lg:justify-end">
               <div
-                class="bg-[#121826] border-[#121826] border-2 flex items-center justify-center text-white py-2 rounded-md w-[65%] font-semibold text-xl leading-6"
+                class="bg-[#121826] border-[#121826] border-2 flex items-center justify-center text-white py-2 rounded-lg w-[85%] lg:w-[65%] text-center lg:text-left font-semibold text-lg leading-6"
               >
                 <div class="w-3/4">Unable to invest money in savings</div>
               </div>
             </div>
 
-            <div class="w-full flex">
+            <div class="w-full flex justify-center lg:justify-start">
               <div
-                class="bg-[#0171ff] border-[#121826] border-2 flex items-center justify-center text-white py-2 rounded-md w-[65%] font-semibold text-xl leading-6"
+                class="bg-[#0171ff] border-[#121826] border-2 flex items-center justify-center text-white py-2 rounded-lg w-[85%] lg:w-[65%] text-center lg:text-left font-semibold text-lg leading-6"
               >
                 <div class="w-3/4">Overwhelmed by financial chaos</div>
               </div>
@@ -213,8 +226,8 @@
           </div>
         </div>
 
-        <!-- Cards -->
-        <div class="w-1/2">
+        <!-- Right Section -->
+        <div class="w-1/2 hidden lg:block">
           <video
             src="./public/media/videos/FlyingMoneyCard.mp4"
             autoplay
@@ -234,11 +247,11 @@
     </div>
 
     <!-- Demo Video Section -->
-    <div class="px-20 pt-20 relative overflow-hidden" id="demovid-section">
+    <div class="md:px-20 pt-20 relative overflow-hidden" id="demovid-section">
       <div class="w-full flex flex-col items-center justify-center">
         <!-- Text Container -->
         <div
-          class="text-5xl font-semibold text-[#121826] text-center leading-12 w-3/4"
+          class="text-4xl md:text-5xl font-semibold text-[#121826] text-center leading-8 md:leading-12 w-3/4"
           style="font-family: agrandir-textbold"
         >
           Watch <span class="text-[#0171ff] italic">Ctrilfy</span> Transform
@@ -248,12 +261,12 @@
         <!-- Video Container -->
         <div
           id="parent"
-          class="bg-[#0171ff] p-20 w-full h-[50vh] mt-40 rounded-t-[100px] border-2 relative flex justify-center"
+          class="bg-[#0171ff] p-20 w-[95%] md:w-full h-[15vh] md:h-[50vh] mt-24 md:mt-40 rounded-xl md:rounded-t-[100px] border-2 relative flex justify-center"
         >
           <video
             id="demoVid"
             src="./public/media/videos/Demo.mp4"
-            class="rounded-[40px] absolute scale-85 -top-30"
+            class="rounded-2xl md:rounded-[40px] absolute scale-85 -top-20 md:-top-30"
             autoplay
             muted
             loop
@@ -263,7 +276,7 @@
     </div>
 
     <!-- Mobile Banner -->
-    <div class="px-40 py-20">
+    <div class="px-40 py-20 hidden md:block">
       <div
         class="border-2 h-[300px] rounded-xl"
         style="
@@ -283,17 +296,17 @@
         "
       >
         <div
-          class="flex items-center justify-center gap-10 w-full p-10 h-full pr-10"
+          class="flex items-center justify-center gap-10 w-full p-10 h-full"
         >
-          <div class="flex flex-col items-end justify-center gap-2 w-[60%]">
+          <div class="flex flex-col items-end justify-center gap-2 w-[60%] text-right">
             <div
-              class="text-6xl font-semibold"
+              class="md:text-4xl lg:text-6xl font-semibold"
               style="font-family: agrandir-textbold"
             >
               Try On Mobile
             </div>
             <div
-              class="text-3xl text-white font-semibold text-shadow-2xs text-right"
+              class="md:text-2xl lg:text-3xl text-white font-semibold text-shadow-2xs"
             >
               Control Your Finances,<br />Anytime, Anywhere.
             </div>
@@ -306,7 +319,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="w-full px-20 h-[200px]">
+    <div class="w-full px-20 h-[200px] hidden md:block">
       <div
         class="bg-[#121826] rounded-t-[100px] h-full flex items-center justify-between px-20"
       >
@@ -335,15 +348,66 @@
           </button>
           <div class="mt-1 w-full text-center text-white">
             Made with 🔥 by
-            <a href="https://github.com/NishB369" target="_blank"><span class="font-semibold underline">Nishchay</span></a>
+            <a href="https://github.com/NishB369" target="_blank"
+              ><span class="font-semibold underline">Nishchay</span></a
+            >
           </div>
         </div>
         <div
           class="flex flex-col text-white text-xl font-semibold text-right w-1/3"
         >
-          <div>Why</div>
-          <div>Features</div>
-          <div>Demo</div>
+          <a href="#why-section">Why</a>
+          <a href="#features-section">Features</a>
+          <a href="#demovid-section">Demo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Footer -->
+    <div class="w-full h-full mt-20 block md:hidden">
+      <div
+        class="bg-[#121826] h-full flex flex-col items-center justify-between px-4 py-6 gap-4"
+      >
+        <div class="flex items-center justify-between w-full">
+          <div class="">
+            <img src="./public/media/images/Logo.png" alt="" class="w-20" />
+            <div class="text-white -mt-2 text-sm ml-2">
+              Financial chaos to ctrl
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col text-white text-md font-semibold text-right"
+          >
+            <a href="#why-section">Why</a>
+            <a href="#features-section">Features</a>
+            <a href="#demovid-section">Demo</a>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center flex-col gap-2 w-full">
+          <div class="text-white text-xl">Satisfied, Checkout the WebApp!</div>
+          <button
+            class="text-[#121826] font-semibold px-4 py-2 rounded-full cursor-pointer border-2 border-white w-full"
+            style="
+              background: radial-gradient(
+                circle at 0% 0%,
+                #fff600,
+                #ffd900,
+                #ffd900,
+                #ffd900,
+                #ffa900
+              );
+            "
+          >
+            Get Started
+          </button>
+          <div class="mt-1 w-full text-center text-white">
+            Made with 🔥 by
+            <a href="https://github.com/NishB369" target="_blank"
+              ><span class="font-semibold underline">Nishchay</span></a
+            >
+          </div>
         </div>
       </div>
     </div>
