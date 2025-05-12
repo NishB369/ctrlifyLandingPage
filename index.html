@@ -33,6 +33,11 @@
       .lenis.lenis-smooth iframe {
         pointer-events: none;
       }
+
+      /* Mobile Navigation Animation */
+      #mobileNav {
+        transition: transform 0.3s ease-in-out;
+      }
     </style>
   </head>
 
@@ -82,7 +87,10 @@
           Get Started
         </button>
 
-        <button class="flex items-center justify-center text-2xl md:hidden">
+        <button
+          id="toggleBtn"
+          class="flex items-center justify-center text-2xl md:hidden"
+        >
           <div class="bi bi-list mt-1"></div>
         </button>
       </div>
@@ -295,10 +303,10 @@
           background-repeat: no-repeat;
         "
       >
-        <div
-          class="flex items-center justify-center gap-10 w-full p-10 h-full"
-        >
-          <div class="flex flex-col items-end justify-center gap-2 w-[60%] text-right">
+        <div class="flex items-center justify-center gap-10 w-full p-10 h-full">
+          <div
+            class="flex flex-col items-end justify-center gap-2 w-[60%] text-right"
+          >
             <div
               class="md:text-4xl lg:text-6xl font-semibold"
               style="font-family: agrandir-textbold"
@@ -431,6 +439,69 @@
     <!-- Lenis Script -->
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 
+    <!-- Mobile Navigation Script -->
+    <script>
+      const toggleBtn = document.getElementById("toggleBtn");
+      const toggleIcon = toggleBtn.querySelector("div");
+
+      const mobileNav = document.createElement("div");
+      mobileNav.className =
+        "fixed inset-0 z-10 bg-[#121826]/95 flex flex-col items-center justify-center transform transition-transform duration-300 translate-y-full";
+      mobileNav.id = "mobileNav";
+      document.body.appendChild(mobileNav);
+
+      const navLinks = `
+        <div class="flex flex-col items-center gap-8 text-white text-xl">
+          <a href="#why-section" class="cursor-pointer hover:text-[#0171ff] transition-colors">Why</a>
+          <a href="#features-section" class="cursor-pointer hover:text-[#0171ff] transition-colors">Features</a>
+          <a href="#demovid-section" class="cursor-pointer hover:text-[#0171ff] transition-colors">Demo</a>
+          <button
+            class="text-[#121826] font-semibold px-8 py-3 rounded-full cursor-pointer mt-4"
+            style="
+              background: radial-gradient(
+                circle at 0% 0%,
+                #fff600,
+                #ffd900,
+                #ffd900,
+                #ffd900,
+                #ffa900
+              );
+            "
+          >
+            Get Started
+          </button>
+        </div>
+      `;
+      mobileNav.innerHTML = navLinks;
+
+      toggleBtn.addEventListener("click", () => {
+        if (toggleIcon.classList.contains("bi-list")) {
+          toggleIcon.classList.remove("bi-list");
+          toggleIcon.classList.add("bi-x");
+          mobileNav.classList.remove("translate-y-full");
+          mobileNav.classList.add("translate-y-0");
+          document.body.style.overflow = "hidden";
+        } else {
+          toggleIcon.classList.remove("bi-x");
+          toggleIcon.classList.add("bi-list");
+          mobileNav.classList.remove("translate-y-0");
+          mobileNav.classList.add("translate-y-full");
+          document.body.style.overflow = "";
+        }
+      });
+
+      const mobileNavLinks = mobileNav.querySelectorAll("a");
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          toggleIcon.classList.remove("bi-x");
+          toggleIcon.classList.add("bi-list");
+          mobileNav.classList.remove("translate-y-0");
+          mobileNav.classList.add("translate-y-full");
+          document.body.style.overflow = ""; // Re-enable scrolling
+        });
+      });
+    </script>
+
     <!-- Scorll Frame Animation Script -->
     <script>
       const canvas = document.querySelector("#canvas");
@@ -535,10 +606,8 @@
 
       preloadImages();
 
-      // Replace the existing demoVid animation code block with this:
       const demoVid = document.querySelector("#demoVid");
 
-      // First, enable 3D transformations
       gsap.set("#parent", {
         perspective: 1000,
       });
